@@ -14,13 +14,11 @@ import { ResumeParserAlgorithmArticle } from "resume-parser/ResumeParserAlgorith
 
 const RESUME_EXAMPLES = [
   {
-    fileUrl: "resume-example/laverne-resume.pdf",
+    fileUrl: "resume-example/atssampleresume.pdf",
     description: (
       <span>
-        Borrowed from University of La Verne Career Center -{" "}
-        <Link href="https://laverne.edu/careers/wp-content/uploads/sites/15/2010/12/Undergraduate-Student-Resume-Examples.pdf">
-          Link
-        </Link>
+      ATS Resume Sample
+  
       </span>
     ),
   },
