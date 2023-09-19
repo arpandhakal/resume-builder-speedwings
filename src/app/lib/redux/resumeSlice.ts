@@ -18,6 +18,7 @@ export const initialProfile: ResumeProfile = {
   phone: "",
   location: "",
   url: "",
+  picture: "",
 };
 
 export const initialWorkExperience: ResumeWorkExperience = {
@@ -80,10 +81,22 @@ export const resumeSlice = createSlice({
   reducers: {
     changeProfile: (
       draft,
-      action: PayloadAction<{ field: keyof ResumeProfile; value: string }>
+      action: PayloadAction<{
+        field: keyof ResumeProfile;
+        value: string;
+        type?: string;
+      }>
     ) => {
-      const { field, value } = action.payload;
-      draft.profile[field] = value;
+      const { field, value, type } = action.payload;
+      if (type == "picture") {
+        console.log(1);
+        draft.profile["picture"] = value;
+      } else if (type == "removepicture") {
+        console.log(2);
+        draft.profile["picture"] = value;
+      } else {
+        draft.profile[field] = value;
+      }
     },
     changeWorkExperiences: (
       draft,

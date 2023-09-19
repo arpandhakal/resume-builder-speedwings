@@ -94,7 +94,11 @@ export const ResumePDF = ({
 
   return (
     <>
-      <Document title={`${name} Resume`} author={name} producer={"Speed Wings Resume Buidler"}>
+      <Document
+        title={`${name} Resume`}
+        author={name}
+        producer={"Speed Wings Resume Buidler"}
+      >
         <Page
           size={documentSize === "A4" ? "A4" : "LETTER"}
           style={{
