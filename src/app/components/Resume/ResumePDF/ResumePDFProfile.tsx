@@ -1,4 +1,4 @@
-import { View } from "@react-pdf/renderer";
+import { View, Image } from "@react-pdf/renderer";
 import {
   ResumePDFIcon,
   type IconType,
@@ -20,19 +20,58 @@ export const ResumePDFProfile = ({
   themeColor: string;
   isPDF: boolean;
 }) => {
-  const { name, email, phone, url, summary, location } = profile;
+  const { name, email, phone, url, summary, location, picture } = profile;
   const iconProps = { email, phone, location, url };
-
   return (
     <ResumePDFSection style={{ marginTop: spacing["4"] }}>
-      <ResumePDFText
-        bold={true}
-        themeColor={themeColor}
-        style={{ fontSize: "20pt" }}
+      <View
+        style={{
+          ...styles.flexRowBetween,
+          flexWrap: "wrap",
+          marginTop: spacing["0.5"],
+        }}
       >
-        {name}
-      </ResumePDFText>
-      {summary && <ResumePDFText>{summary}</ResumePDFText>}
+        <View
+          style={{
+            ...styles.flexCol,
+            flexWrap: "wrap",
+            marginTop: spacing["0.5"],
+          }}
+        >
+          <ResumePDFText
+            bold={true}
+            themeColor={themeColor}
+            style={{ fontSize: "20pt" }}
+          >
+            {name}
+          </ResumePDFText>
+          {summary && (
+            <ResumePDFText style={{ marginTop: 20 }}>{summary}</ResumePDFText>
+          )}
+        </View>
+        <ResumePDFText>
+          <Image
+            src={picture}
+            style={{
+              width: 100,
+              height: 100,
+              borderRadius: 40,
+              marginLeft: spacing["1"],
+            }}
+          />
+          {/* added 2 images here because 1 works with the pdf view and 1 only works in download view */}
+          <img
+            src={picture}
+            style={{
+              width: 100,
+              height: 100,
+              borderRadius: 40,
+              marginLeft: spacing["1"],
+            }}
+          />
+        </ResumePDFText>
+      </View>
+
       <View
         style={{
           ...styles.flexRowBetween,
