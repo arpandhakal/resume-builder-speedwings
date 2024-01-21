@@ -124,8 +124,7 @@ export const ProfileForm = () => {
                   src={`${picture}`}
                   alt="Preview"
                   className="rounded-xl"
-                  width="130"
-                  height="150"
+                  style={{ width: "130px", height: "120px" }}
                 />
               </div>
               <DeleteIconButton
