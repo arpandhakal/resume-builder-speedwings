@@ -21,7 +21,6 @@ export const ProfileForm = () => {
     dispatch(changeProfile({ field, value }));
   };
   const handleProfilePictureChange = (event: ChangeEvent<HTMLInputElement>) => {
-    console.log("hit");
     const type = "picture";
     const file = event.target.files?.[0];
     const reader = new FileReader();
